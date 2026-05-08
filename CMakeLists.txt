@@ -171,7 +171,7 @@ endif()
 add_library(isocline_shared SHARED ${ic_sources})
 set_target_properties(isocline_shared PROPERTIES
     OUTPUT_NAME isocline
-    VERSION 1.0.9
+    VERSION 1.1.0
     SOVERSION 1
 )
 target_compile_options(isocline_shared PRIVATE ${ic_cflags})
