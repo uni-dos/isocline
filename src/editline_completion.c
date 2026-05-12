@@ -266,7 +266,7 @@ again:
 
 static void edit_generate_completions(ic_env_t* env, editor_t* eb, bool autotab) {
   debug_msg( "edit: complete: %zd: %s\n", eb->pos, sbuf_string(eb->input) );
-  if (eb->pos < 0) return;
+  if (eb->pos <= 0) return;
   ssize_t count = completions_generate(env, env->completions, sbuf_string(eb->input), eb->pos, IC_MAX_COMPLETIONS_TO_TRY);
   bool more_available = (count >= IC_MAX_COMPLETIONS_TO_TRY);
   if (count <= 0) {
