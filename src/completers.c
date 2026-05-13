@@ -642,7 +642,13 @@ static void filename_completer( ic_completion_env_t* cenv, const char* prefix ) 
       while ( root != NULL ) {
         // create full root in `root_dir`
         sbuf_clear(root_dir);
-        next = strchr(root,';');
+        char separator;
+        #ifdef _WIN32
+        separator = ';';
+        #else
+        separator = ':';
+        #endif
+        next = strchr(root,separator);
         if (next == NULL) {
           sbuf_append( root_dir, root );
           root = NULL;
