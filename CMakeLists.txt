@@ -3,6 +3,7 @@
 # -----------------------------------------------------------------------------
 cmake_minimum_required(VERSION 3.10)
 project(libisocline C CXX ASM)
+set(PROJECT_VERSION "1.1.1")
 
 set(CMAKE_C_STANDARD   99)
 set(CMAKE_CXX_STANDARD 11)
@@ -171,7 +172,7 @@ endif()
 add_library(isocline_shared SHARED ${ic_sources})
 set_target_properties(isocline_shared PROPERTIES
     OUTPUT_NAME isocline
-    VERSION 1.0.9
+    VERSION ${PROJECT_VERSION}
     SOVERSION 1
 )
 target_compile_options(isocline_shared PRIVATE ${ic_cflags})
