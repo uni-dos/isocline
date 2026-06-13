@@ -4,6 +4,12 @@
 cmake_minimum_required(VERSION 3.10)
 project(libisocline C CXX ASM)
 
+# -----------------------------------------------------------------------------
+# Get the ISOCINE_VERSION from
+# - CMake variable (if set)
+# - the latest git tag (if git is installed and tags are present)
+# - or fallback to 0.0.1
+# -----------------------------------------------------------------------------
 if (NOT DEFINED ISOCLINE_VERSION)
 	execute_process(
 		COMMAND git describe --tags --abbrev=0
@@ -13,7 +19,6 @@ if (NOT DEFINED ISOCLINE_VERSION)
 		RESULT_VARIABLE GIT_RESULT
 	)
 	
-
 	if(NOT GIT_RESULT EQUAL 0)
 		set(ISOCLINE_VERSION "0.0.1")
 	else()
